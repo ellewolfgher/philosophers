@@ -22,8 +22,9 @@
 
 NAME	= philo
 CC		= cc
-FLAGS	= -Wall -Wextra -Werror -pthread -g
-#DATARACE = -fsanitize=thread -g
+FLAGS	= -Wall -Wextra -Werror -g
+PFLAG	= -lm -pthread
+DATARACE = -fsanitize=thread -g
 
 SRC_PATH = srcs/
 OBJ_PATH = objs/
@@ -43,7 +44,10 @@ $(OBJ_PATH):
 	mkdir $(OBJ_PATH)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME) $(PFLAG)
+
+datarace:
+	$(CC) $(DATARACE) $(SRCS) -o $(NAME) $(PFLAG)
 
 clean:
 	rm -rf $(OBJ_PATH)

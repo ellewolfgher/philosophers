@@ -6,12 +6,13 @@
 /*   By: ewolfghe <ewolfghe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:25:38 by ewolfghe          #+#    #+#             */
-/*   Updated: 2023/05/04 19:03:35 by ewolfghe         ###   ########.fr       */
+/*   Updated: 2023/05/06 15:42:49 by ewolfghe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
+// Initializes the philo struct with the values from the arguments
 void	ft_init_philos(t_philo *philo, int ac, char *av[])
 {
 	int	is_dead;
@@ -38,6 +39,9 @@ void	ft_init_philos(t_philo *philo, int ac, char *av[])
 	}
 }
 
+// Initializes the mutex locks for each philosopher's left
+//and right forks, as well as the mutex lock for the death
+//variable (which is used to track whether any philosopher has died).
 void	ft_init_mutex(t_philo *philo, char *av[], \
 	pthread_mutex_t *forks, pthread_mutex_t *death)
 {
@@ -61,6 +65,8 @@ void	ft_init_mutex(t_philo *philo, char *av[], \
 	pthread_mutex_init(philo->death, NULL);
 }
 
+// Creates a thread for each philosopher, and then waits for all 
+//philosophers to finish eating or for one of them to die 
 void	ft_init_threads(t_philo *philo, char *av[])
 {
 	int	i;

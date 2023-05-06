@@ -6,12 +6,15 @@
 /*   By: ewolfghe <ewolfghe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:21:10 by ewolfghe          #+#    #+#             */
-/*   Updated: 2023/05/04 19:10:21 by ewolfghe         ###   ########.fr       */
+/*   Updated: 2023/05/06 15:54:14 by ewolfghe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
+// When a philo die, it sets the is_dead flag of the
+//philosopher to 1, and prints a message to the console
+//indicating that the philosopher has died.
 int	ft_die(t_philo *philo, int i, t_time time)
 {
 	if ((int)time > philo[i].time_to_die)
@@ -23,6 +26,10 @@ int	ft_die(t_philo *philo, int i, t_time time)
 	return (0);
 }
 
+// Check if the philo have eaten enough times to satisfy the
+//n_time_must_eat constraint. If the constraint is not set,
+//the function always returns 0. If the constraint is set,
+//the function returns 1 if the philo has eaten enough times, and 0 otherwise.
 int	ft_done_eating(t_philo *philo, int *j, int *res)
 {
 	if (philo->n_time_must_eat != -1)
@@ -38,6 +45,8 @@ int	ft_done_eating(t_philo *philo, int *j, int *res)
 	return (0);
 }
 
+// Checks if a philosopher has died by comparing 
+//the current time to the time of their last meal.
 void	ft_check_pulse(t_philo *philo)
 {
 	t_time	time;
@@ -59,6 +68,10 @@ void	ft_check_pulse(t_philo *philo)
 	}
 }
 
+// Print the status of a philosopher, including the
+//time elapsed since the program started.
+//This function is protected by a mutex lock to ensure
+//that only one philosopher can write to the console at a time.
 int	ft_status(t_philo *philo, char *status)
 {
 	t_time	time;

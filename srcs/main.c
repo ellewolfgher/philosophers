@@ -6,12 +6,14 @@
 /*   By: ewolfghe <ewolfghe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:21:25 by ewolfghe          #+#    #+#             */
-/*   Updated: 2023/05/04 18:19:00 by ewolfghe         ###   ########.fr       */
+/*   Updated: 2023/05/06 15:55:25 by ewolfghe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
+// The main function that initializes the program,
+//creates the necessary threads, and manages the memory.
 int	main(int ac, char *av[])
 {
 	t_philo			*philo;

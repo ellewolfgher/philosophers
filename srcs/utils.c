@@ -6,12 +6,13 @@
 /*   By: ewolfghe <ewolfghe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:20:58 by ewolfghe          #+#    #+#             */
-/*   Updated: 2023/05/04 17:51:15 by ewolfghe         ###   ########.fr       */
+/*   Updated: 2023/05/06 15:47:02 by ewolfghe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
+// Converts a string to a long integer.
 long	ft_atol(const char *str)
 {
 	int		i;
@@ -38,6 +39,7 @@ long	ft_atol(const char *str)
 	return (nb * sign);
 }
 
+// Checks if the arguments are valid.
 int	ft_check_args(int ac, char *av[])
 {
 	int	i;
@@ -58,6 +60,9 @@ int	ft_check_args(int ac, char *av[])
 	return (1);
 }
 
+// Gets the current time as the number of milliseconds
+//since the Unix epoch. It does this using the `gettimeofday`
+//system call, which gets the time of day with microsecond precision.
 t_time	ft_get_time(void)
 {
 	struct timeval	tv;
@@ -68,6 +73,9 @@ t_time	ft_get_time(void)
 	return (time);
 }
 
+// Simply sleeps for a given number of milliseconds by
+//repeatedly checking the current time until the desired
+//amount of time has elapsed.
 void	ft_sleep(int timeout)
 {
 	t_time	time;
@@ -77,6 +85,8 @@ void	ft_sleep(int timeout)
 		usleep(100);
 }
 
+// Cleans up the mutex locks and memory used by the program.
+//It destroys each mutex lock.
 void	ft_free(t_philo *philo, pthread_mutex_t *forks, pthread_mutex_t *death)
 {
 	int	i;

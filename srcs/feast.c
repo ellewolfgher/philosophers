@@ -6,12 +6,14 @@
 /*   By: ewolfghe <ewolfghe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:21:15 by ewolfghe          #+#    #+#             */
-/*   Updated: 2023/05/04 18:41:54 by ewolfghe         ###   ########.fr       */
+/*   Updated: 2023/05/06 15:49:32 by ewolfghe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
+// Checks if the philosopher is hungry and if so,
+//tries to pick up the forks to start eating.
 int	ft_hungry(t_philo *philo)
 {
 	pthread_mutex_lock(philo->left_fork);
@@ -27,6 +29,8 @@ int	ft_hungry(t_philo *philo)
 	return (0);
 }
 
+// Makes the philosopher sleep if they have finished
+//eating and are not hungry anymore.
 int	ft_lullaby(t_philo *philo)
 {
 	pthread_mutex_lock(philo->death);
@@ -41,6 +45,8 @@ int	ft_lullaby(t_philo *philo)
 	return (0);
 }
 
+//The main function that the philosopher threads run,
+//repeatedly trying to pick up the forks, eat, and sleep.
 void	*ft_feast(void *args)
 {
 	t_philo	*philo;
