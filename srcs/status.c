@@ -6,7 +6,7 @@
 /*   By: ewolfghe <ewolfghe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:21:10 by ewolfghe          #+#    #+#             */
-/*   Updated: 2023/05/06 15:54:14 by ewolfghe         ###   ########.fr       */
+/*   Updated: 2023/05/11 20:49:06 by ewolfghe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_die(t_philo *philo, int i, t_time time)
 {
 	if ((int)time > philo[i].time_to_die)
 	{
-		printf("%llu %d %s\n", time, philo->id + 1, "died");
+		printf("%s%llu %d %s\n", GRAY, time, philo->id + 1, "died");
 		*philo->is_dead = 1;
 		return (1);
 	}
@@ -65,21 +65,21 @@ void	ft_check_pulse(t_philo *philo)
 			break ;
 		i++;
 		pthread_mutex_unlock(philo->death);
-	}
+	}			
 }
 
 // Print the status of a philosopher, including the
 //time elapsed since the program started.
 //This function is protected by a mutex lock to ensure
 //that only one philosopher can write to the console at a time.
-int	ft_status(t_philo *philo, char *status)
+int	ft_status(t_philo *philo, char *status, char *color)
 {
 	t_time	time;
 
 	time = ft_get_time() - philo->start_time;
 	pthread_mutex_lock(philo->death);
 	if (*philo->is_dead == 0)
-		printf("%llu %d %s\n", time, philo->id + 1, status);
+		printf("%s%llu %d %s\n", color, time, philo->id + 1, status);
 	pthread_mutex_unlock(philo->death);
 	return (0);
 }

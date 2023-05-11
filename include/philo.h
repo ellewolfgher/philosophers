@@ -6,7 +6,7 @@
 /*   By: ewolfghe <ewolfghe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:45:00 by ewolfghe          #+#    #+#             */
-/*   Updated: 2023/05/04 19:02:01 by ewolfghe         ###   ########.fr       */
+/*   Updated: 2023/05/11 19:17:18 by ewolfghe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 # include <stdlib.h>
 # include <pthread.h>
 # include <sys/time.h>
+
+# define GREEN "\001\033[1;92m\002"
+# define MAGENTA "\001\033[1;95m\002"
+# define YELLOW "\001\033[1;93m\002"
+# define BLUE "\001\033[1;96m\002"
+# define RED "\001\033[1;91m\002"
+# define GRAY "\001\033[1;90m\002"
 
 typedef unsigned long long	t_time;
 
@@ -52,7 +59,7 @@ void	*ft_feast(void *args);
 void	ft_check_pulse(t_philo *philo);
 int		ft_die(t_philo *philo, int i, t_time time);
 int		ft_done_eating(t_philo *philo, int *j, int *res);
-int		ft_status(t_philo *philo, char *status);
+int		ft_status(t_philo *philo, char *status, char *color);
 
 // utils: 
 long	ft_atol(const char *str);

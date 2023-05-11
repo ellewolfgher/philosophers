@@ -6,7 +6,7 @@
 /*   By: ewolfghe <ewolfghe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:25:38 by ewolfghe          #+#    #+#             */
-/*   Updated: 2023/05/06 15:42:49 by ewolfghe         ###   ########.fr       */
+/*   Updated: 2023/05/11 20:49:28 by ewolfghe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ft_init_mutex(t_philo *philo, char *av[], \
 void	ft_init_threads(t_philo *philo, char *av[])
 {
 	int	i;
-
+	
 	i = 0;
 	while (i < ft_atol(av[1]))
 	{
@@ -79,5 +79,5 @@ void	ft_init_threads(t_philo *philo, char *av[])
 		usleep(100);
 	}
 	while (*philo->is_dead != 1)
-		ft_check_pulse(philo);
+		ft_check_pulse(philo);	
 }
