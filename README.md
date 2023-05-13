@@ -1,6 +1,11 @@
 <h1 align=center>
 	<b>philosophers</b>
 </h1>
+<div align=center>
+<img src=https://github.com/ellewolfgher/philosophers/blob/main/philosopher.png alt="42 Project Philosophers Badge"/>
+</div>
+
+---
 
 <h2 align=center>
 	 <i>42 - Project #9</i>
@@ -12,11 +17,6 @@
 
 ---
 
-<div align=center>
-<img src=https://github.com/ellewolfgher/philosophers/blob/main/philosopher.png alt="42 Project Philosophers Badge"/>
-</div>
-
----
 <h4 align=center>New Concepts</h4>
 <h3 align=center>Threads and Mutexes</h3>
 <h2>
