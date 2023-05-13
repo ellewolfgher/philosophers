@@ -17,7 +17,8 @@
 </div>
 
 ---
-
+<h4 align=center>New Concepts</h4>
+<h3 align=center>Threads and Mutexes</h3>
 <h2>
 The project
 </h2>
@@ -40,6 +41,3 @@ How can we make sure that no two philosophers are eating simultaneously with the
 How can we monitor whoever dies of finishes eating first, further preventing the simulation from continue?
 
 This is the core concept of the philosopher’s project.
-
-<h4 align=center>New Concepts</h4>
-<h3 align=center>Threads and Mutexes</h3>
