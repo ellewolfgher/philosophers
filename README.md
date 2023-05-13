@@ -40,3 +40,11 @@ How can we make sure that no two philosophers are eating simultaneously with the
 How can we monitor whoever dies of finishes eating first, further preventing the simulation from continue?
 
 This is the core concept of the philosopher’s project.
+
+<h3 align=center>
+	 <b>Main Concepts</b>
+</h3>
+<br>
+<h4 align=center>
+	 <i>Threads and Mutexes</i>
+</h4>
