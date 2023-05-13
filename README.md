@@ -41,10 +41,5 @@ How can we monitor whoever dies of finishes eating first, further preventing the
 
 This is the core concept of the philosopher’s project.
 
-<h3 align=center>
-	 <b>Main Concepts</b>
-</h3>
-<br>
-<h4 align=center>
-	 <i>Threads and Mutexes</i>
-</h4>
+<h4 align=center>New Concepts</h4>
+<h3 align=center>Threads and Mutexes</h3>
