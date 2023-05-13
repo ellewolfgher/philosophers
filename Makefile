@@ -1,30 +1,7 @@
-# NAME = philo
-# SRCS = main.c init.c status.c feast.c utils.c
-# CC = gcc
-# FLAGS = -Wall -Wextra -Werror -pthread -g
-# DATARACE = -fsanitize=thread -g
-
-# all: $(NAME)
-
-# $(NAME): $(SRCS)
-# 	@$(CC) $(FLAGS) $(SRCS) -o $(NAME) 
-
-# datarace:
-# 	@$(CC) $(DATARACE) $(SRCS) -o $(NAME)
-
-# clean:
-# 	@rm -rf *.o
-
-# fclean: clean
-# 	@rm -rf $(NAME)
-
-# re: fclean all
-
 NAME	= philo
 CC		= cc
 FLAGS	= -Wall -Wextra -Werror -g
 PFLAG	= -lm -pthread
-DATARACE = -fsanitize=thread -g
 
 SRC_PATH = srcs/
 OBJ_PATH = objs/
@@ -46,9 +23,6 @@ $(OBJ_PATH):
 $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME) $(PFLAG)
 
-datarace:
-	$(CC) $(DATARACE) $(SRCS) -o $(NAME) $(PFLAG)
-
 clean:
 	rm -rf $(OBJ_PATH)
 
@@ -57,4 +31,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all datarace clean fclean re
+.PHONY: all clean fclean re

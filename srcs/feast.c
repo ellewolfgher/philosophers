@@ -6,7 +6,7 @@
 /*   By: ewolfghe <ewolfghe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:21:15 by ewolfghe          #+#    #+#             */
-/*   Updated: 2023/05/11 18:50:16 by ewolfghe         ###   ########.fr       */
+/*   Updated: 2023/05/12 14:39:05 by ewolfghe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 //tries to pick up the forks to start eating.
 int	ft_hungry(t_philo *philo)
 {
-	pthread_mutex_lock(philo->left_fork);
-	ft_status(philo, "has taken a fork", MAGENTA);
+	if (*philo->is_dead)
+		return (1);
 	if (philo->n_of_philo == 1)
 	{
 		ft_sleep(philo->time_to_die);
 		return (1);
 	}
+	pthread_mutex_lock(philo->left_fork);
+	ft_status(philo, "has taken a fork", MAGENTA);
 	pthread_mutex_lock(philo->right_fork);
 	ft_status(philo, "has taken a fork", GREEN);
 	ft_status(philo, "is eating", YELLOW);
@@ -58,7 +60,7 @@ void	*ft_feast(void *args)
 			break ;
 		if (ft_lullaby(philo))
 			break ;
-		if (ft_status(philo, "is thinking", RED))
+		if (ft_status(philo, "is thinking", RED) && *philo->is_dead)
 			break ;
 	}
 	return (NULL);

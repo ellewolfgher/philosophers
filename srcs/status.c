@@ -6,7 +6,7 @@
 /*   By: ewolfghe <ewolfghe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:21:10 by ewolfghe          #+#    #+#             */
-/*   Updated: 2023/05/11 20:49:06 by ewolfghe         ###   ########.fr       */
+/*   Updated: 2023/05/11 21:56:09 by ewolfghe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ void	ft_check_pulse(t_philo *philo)
 		pthread_mutex_lock(philo->death);
 		time = ft_get_time() - philo[i].last_meal;
 		if (ft_die(philo, i, time) || ft_done_eating(philo, &j, &res))
+		{
+			pthread_mutex_unlock(philo->death);
 			break ;
+		}	
 		i++;
 		pthread_mutex_unlock(philo->death);
 	}			
